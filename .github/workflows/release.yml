@@ -28,7 +28,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 9.0.x
+          dotnet-version: 10.0.x
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
@@ -60,7 +60,7 @@ jobs:
         env:
           RELEASE_NOTES: ${{ inputs.release-notes }}
           JELLYFIN_RELEASE: ${{ inputs.jellyfin-release }}
-          SOURCE_URL: https://github.com/Divi-0/Jellyfin.Plugin.Crunchyroll/releases/download/${{ inputs.version }}/Jellyfin.Plugin.Crunchyroll-${{ inputs.version }}.zip
+          SOURCE_URL: https://github.com/${{ github.repository }}/releases/download/${{ inputs.version }}/Jellyfin.Plugin.Crunchyroll-${{ inputs.version }}.zip
           CHECKSUM: ${{ steps.artifact.outputs.checksum }}
         run: |
           TIMESTAMP=$(date --utc +%FT%TZ)
